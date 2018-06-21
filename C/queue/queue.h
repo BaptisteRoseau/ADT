@@ -29,7 +29,27 @@ struct queue;
  * @param debug_op debug operator
  * @return a newly created queue
  */
-struct queue *queue__empty(void* copy_op, void* delete_op, void* debug_op);
+struct queue *queue__empty_copy_enabled(void* copy_op, void* delete_op, void* debug_op);
+
+
+/**
+ * @brief Create an empty queue
+ * @note Complexity: O(n)
+ * @param copy_op copy operator
+ * @param delete_op delete operator
+ * @param debug_op debug operator
+ * @return a newly created queue
+ */
+struct queue *queue__empty_copy_disabled(void* debug_op);
+
+
+/**
+ * @brief Verify if the element's copy is enabled for the given queue
+ * @note Complexity: O(1)
+ * @param s is the queue you want to check
+ * @return 1 if copy is enabled, 0 if not
+ */
+int queue__is_copy_enabled(struct queue const *q);
 
 
 /**
@@ -86,7 +106,7 @@ int queue__dequeue(struct queue *q);
  * @param q the queue
  * @return an integer corresponding to the number of elements in the queue
  */
-size_t queue__length(struct queue *q);
+unsigned int queue__length(struct queue *q);
 
 
 /**
@@ -104,5 +124,19 @@ void queue__free(struct queue *q);
  * @param is_compact to display a compact debug (only values)
  */
 void queue__debug(struct queue *q, int is_compact);
+
+
+/**
+ * function pointer for lambda applying
+ */
+typedef void (*applying_func_t)(void *object);
+
+/**
+ * @brief Applies a function with only a queue object as parameter
+ * @note Complexity: O(n²)
+ * @param q the queue
+ * @param f the applying function
+ */
+void queue__map(struct queue *q, applying_func_t f);
   
 #endif
