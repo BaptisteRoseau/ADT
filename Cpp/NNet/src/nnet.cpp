@@ -10,7 +10,7 @@
 
 
 void exit_error(const char *message, const char *function){
-    fprintf(stderr, RED"%s in %s"RESET, message, function);
+    fprintf(stderr, RED "%s in %s" RESET, message, function);
     exit(EXIT_FAILURE);
 }
 
