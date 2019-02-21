@@ -4,16 +4,30 @@
 #include <cstdio>
 #include <vector>
  
-#define DEFAULT_LAYERSIZE 32
-#define DEFAULT_LAYERAMOUNT 3
+#define DEFAULT_LAYERLENGTH 32
+#define DEFAULT_LAYERAMOUNT 2
 
 class NNet {
     private:
-        FILE *weigthFile = NULL;
-        std::vector<double> weights;
-        std::vector<std::vector<double>> synapses;
+        FILE *_weigthFile = NULL;
+        unsigned int _inputLenght;
+        unsigned int _outputLength;
+        unsigned int _synapsesLayerLength;
+        unsigned int _synapsesLayerAmount;
+        
+        double ***_weights;
+        double **_synapses;
+        double *_outputLayer;
 
-        double sigmoid(double x);
+        /**
+         * @brief Sigmoid function to bring back real number to [0, 1]
+         * 
+         * @param x The real number to bring back to [0, 1]
+         * @return double The output value, in [0, 1]
+         */
+        inline double sigmoid(double x);
+
+        void computeSynapse(double& synapse, unsigned int layer);
 
     public:
         /**
@@ -27,13 +41,13 @@ class NNet {
          * 
          * @param inputLenght The length of the input array (ex: 1920*1080 for a picture)
          * @param outputLength The length of the output array (ex: 2 for a yes/no output)
-         * @param synapsesLayerSize The length of an intermediate layer (32 by default)
+         * @param synapsesLayerLength The length of an intermediate layer (32 by default)
          * @param synapsesLayerAmount The amount of intermediate layers (3 by default)
          */
         NNet(const unsigned int inputLenght,
              const unsigned int outputLength,
-             const unsigned int synapsesLayerSize = DEFAULT_LAYERSIZE,
-             const unsigned int synapsesLayerAmount = DEFAULT_LAYERAMOUNT);
+             const unsigned int synapsesLayerLength,
+             const unsigned int synapsesLayerAmount);
         /**
          * @brief Destroy the NNet object
          * 
