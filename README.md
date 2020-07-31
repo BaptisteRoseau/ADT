@@ -1,5 +1,5 @@
 # ADT
-This repository conatins some common Abstract Data Types (ADT) only in C language (for the moment).
+This repository contains some common Abstract Data Types (ADT) only in C language (for the moment).
 
 This is currently in development:
 Finished:
