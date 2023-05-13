@@ -47,7 +47,7 @@ Each ADT's .c and .h is located in different folders by using the following conv
 ```
 
 
-## How to use it ?
+## How to use
 The following explanations concerns all of the ADTs in this repository.
 
 Note that all of the ADTs's implementaion require the following functions from [utils.c](./C/utils.c).
@@ -63,7 +63,7 @@ In order to use those ADTs in your project, follow these instrcuctions:
 You can do the same for the tests. Note that every test require the `common_tests_utils.c` and `common_tests_utils.h`.
 
 
-## How does it works ?
+## How does it work
 All of those ADTs are stocking _void*_ pointers, that is why you will have to give a pointer to that object and not the object itself.
 
 
