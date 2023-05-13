@@ -1,5 +1,5 @@
 # Authors
-- ROSEAU Baptiste [broseau@enseirb-matmeca.fr](mailto:broseau@gmail.fr)
+- ROSEAU Baptiste [broseau@gmail.fr](mailto:broseau@gmail.fr)
 - JOLIVET Arthur [ajolivet@enseirb-matmeca.fr](mailto:ajolivet@enseirb-matmeca.fr)
 
 # ADT
