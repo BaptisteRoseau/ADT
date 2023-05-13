@@ -77,7 +77,7 @@ There are two diferents way of creating an empty ADT:
 If copies are enabled, there will be creation of dynamically allocated copies for all the added elements.
 If not, the element itself is stocked into the ADT.
 For example:
-```
+```c
     struct set *set_cpy = set__empty_copy_enabled(...);
     struct set *set_no_cpy = set__empty_copy_disabled(...);
     for (int i = 0; i < 4; i++){
